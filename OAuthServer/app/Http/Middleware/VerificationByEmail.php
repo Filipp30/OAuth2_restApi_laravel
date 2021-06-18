@@ -4,9 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\User;
 use Closure;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 
 class VerificationByEmail{
 

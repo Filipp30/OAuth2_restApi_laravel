@@ -8,8 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 
-class RegistrationController extends Controller
-{
+class RegistrationController extends Controller{
+
     public function register(RegistrationUserRequest $request){
         $validated = $request->validated();
 
@@ -30,8 +30,4 @@ class RegistrationController extends Controller
             'user'=>$user,
         ],201);
     }
-
-
-
-
 }

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/OAuthServer/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/OAuthServer/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/OAuthServer/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/OAuthServer/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpseclib/phpseclib" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/paragonie/constant_time_encoding" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/laravel/passport" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/laravel/sail" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/fruitcake/laravel-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/fideloper/proxy" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/php-http/message-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/mockery/mockery" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/opis/closure" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/resource-operations" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/cli-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/complexity" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/nyholm/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/facade/ignition-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/facade/flare-client-php" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/facade/ignition" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/lcobucci/jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/lcobucci/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/league/oauth2-server" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/league/event" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/defuse/php-encryption" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-iconv" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/psr-http-message-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/dragonmantank/cron-expression" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-php72" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

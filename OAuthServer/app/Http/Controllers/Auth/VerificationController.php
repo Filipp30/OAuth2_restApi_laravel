@@ -12,35 +12,12 @@ use Illuminate\Http\Request;
 
 class VerificationController extends Controller{
 
-
     public function verify_email(Request $request){
-
         $user = User::query()->findOrFail($request->id);
-
-//        if (!$user){
-//            dd('User not exists');
-//        }
-        $hash = hash_equals($request->hash , sha1($user->getEmailForVerification()));
-
-//        if (!$hash){
-//            dd('Hash credentials are incorrect!');
-//        }
-//
-//        if ($user->hasVerifiedEmail()){
-//            dd('Email is verified');
-//        }
-//
-//        $user->markEmailAsVerified();
-
-        dd($user->getEmailForVerification(),
-            $request->hash,
-            sha1($user->getEmailForVerification()),
-            $hash,
-            $request->signature,
-            $request->expires
-            );
-
+        $email_is_verified = $user->markEmailAsVerified();
+        if ($email_is_verified){
+            return response('Email is verified successfully.');
+        }
     }
-
 
 }

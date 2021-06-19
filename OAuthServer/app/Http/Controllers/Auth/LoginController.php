@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginUserRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 
 class LoginController extends Controller{
 
@@ -26,13 +28,45 @@ class LoginController extends Controller{
             ],401);
         }
 
-//        $tokens = $user->
-        return response([
-            'access_token'=>$user->createToken('access_token')->accessToken,
+            $req = Request::create('/oauth/token', 'POST',[
+                'grant_type' => 'password',
+                'client_id' => 5,
+                'client_secret' => 'AiyRwhHOt4wgYi4DERinnJArQ4pDMQQzX6cQgePl',
+                'username' => $validated['email'],
+                'password' => $validated['password'],
+                'scope' => ''
+            ]);
+            $response = app()->handle($req);
+            $responseBody = json_decode($response->getContent());
 
+            return response([
+            'response'=>$responseBody,
             'isAdmin'=>$user['is_admin']
         ],201);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function login_refresh(){
+
+    }
+
 
     public function logout(){
         $user = request()->user();

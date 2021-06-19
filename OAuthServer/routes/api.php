@@ -15,10 +15,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/registration',[RegistrationController::class,'register']);
 
 Route::get('/verify-email/{id}/{hash}', [VerificationController::class, 'verify_email'])
-    ->middleware(['verification.email','signed', 'throttle:5,1'])
+    ->middleware(['verification.email','signed','throttle:5,1'])
     ->name('verification.verify');
 
 Route::post('/resending/verify/email',[VerificationController::class,'resending_verify_email'])
     ->middleware('throttle:5,1');
 
 Route::post('/login',[LoginController::class,'login']);
+Route::post('/login/refresh',[LoginController::class,'login_refresh']);
+Route::post('/logout',[LoginController::class,'logout']);

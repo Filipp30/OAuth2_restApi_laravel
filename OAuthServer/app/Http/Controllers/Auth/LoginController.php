@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginUserRequest;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
-
+use Laravel\Passport\Client as OClient;
 class LoginController extends Controller{
 
 
     public function login(LoginUserRequest $request){
         $validated = $request->validated();
-
         $user = User::query()->where('email','=',$validated['email'])->first();
+        $oClient = OClient::query()->where('password_client', 1)->first();
 
         if (! $user){
             return response([
@@ -28,40 +28,24 @@ class LoginController extends Controller{
             ],401);
         }
 
-            $req = Request::create('/oauth/token', 'POST',[
-                'grant_type' => 'password',
-                'client_id' => 5,
-                'client_secret' => 'AiyRwhHOt4wgYi4DERinnJArQ4pDMQQzX6cQgePl',
-                'username' => $validated['email'],
-                'password' => $validated['password'],
-                'scope' => ''
-            ]);
-            $response = app()->handle($req);
-            $responseBody = json_decode($response->getContent());
+        $req = Request::create('/oauth/token', 'POST',[
+            'grant_type' => 'password',
+            'client_id' =>$oClient->id,
+            'client_secret' => $oClient->secret,
+            'username' => $validated['email'],
+            'password' => $validated['password'],
+            'scope' => ''
+        ]);
 
-            return response([
-            'response'=>$responseBody,
-            'isAdmin'=>$user['is_admin']
+        $response = app()->handle($req);
+        $responseBody = json_decode($response->getContent());
+
+        return response([
+        'response'=>$responseBody,
+        'user'=>$user,
+        'isAdmin'=>$user['is_admin']
         ],201);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function login_refresh(){
 

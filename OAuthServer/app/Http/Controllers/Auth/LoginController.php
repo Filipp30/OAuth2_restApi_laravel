@@ -5,21 +5,20 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginUserRequest;
 use App\Models\User;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Client as OClient;
-class LoginController extends Controller{
 
+class LoginController extends Controller{
 
     public function login(LoginUserRequest $request){
         $validated = $request->validated();
         $user = User::query()->where('email','=',$validated['email'])->first();
         $oClient = OClient::query()->where('password_client', 1)->first();
 
-        if (! $user){
+        if (!$user || !$oClient){
             return response([
-                'message'=>'User not exist'
+                'message'=>'User or oClient not exist'
             ],401);
         }
         if (!Hash::check($validated['password'],$user->password)){
@@ -47,10 +46,9 @@ class LoginController extends Controller{
         ],201);
     }
 
-    public function login_refresh(){
+    public function refresh(){
 
     }
-
 
     public function logout(){
         $user = request()->user();

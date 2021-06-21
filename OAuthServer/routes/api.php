@@ -22,6 +22,6 @@ Route::post('/resending/verify/email',[VerificationController::class,'resending_
     ->middleware('throttle:5,1');
 
 Route::post('/login',[LoginController::class,'login']);
-Route::post('/login/refresh',[LoginController::class,'login_refresh']);
+Route::post('/login/refresh',[LoginController::class,'refresh']);
 Route::post('/logout',[LoginController::class,'logout']);
 

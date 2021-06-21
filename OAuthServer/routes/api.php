@@ -24,3 +24,4 @@ Route::post('/resending/verify/email',[VerificationController::class,'resending_
 Route::post('/login',[LoginController::class,'login']);
 Route::post('/login/refresh',[LoginController::class,'login_refresh']);
 Route::post('/logout',[LoginController::class,'logout']);
+

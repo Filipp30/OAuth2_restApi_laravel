@@ -18,10 +18,18 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         if (! $this->app->routesAreCached()) {
-            Passport::routes();
-            Passport::tokensExpireIn(now()->addDays(15));
-            Passport::refreshTokensExpireIn(now()->addDays(30));
-            Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+//            Passport::routes();
+
+            Passport::routes(function ($router) {
+//                $router->forAuthorization();
+                $router->forAccessTokens();
+                $router->forTransientTokens(); //route for refreshing tokens
+//                $router->forClients();
+//                $router->forPersonalAccessTokens();
+            });
+            Passport::tokensExpireIn(now()->addMinutes(5));
+            Passport::refreshTokensExpireIn(now()->addMinutes(5));
+//            Passport::personalAccessTokensExpireIn(now()->addMinutes(5));
 //            Passport::hashClientSecrets(); // client's secrets to be hashed when stored in your database.
         }
     }

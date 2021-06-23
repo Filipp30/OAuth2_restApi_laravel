@@ -46,8 +46,29 @@ class LoginController extends Controller{
         ],201);
     }
 
-    public function refresh(){
+    public function refresh(Request $request){
+        $refresh_token = $request['refresh_token'];
+        $oClient = OClient::query()->where('password_client', 1)->first();
 
+        $req = Request::create('/oauth/token', 'POST',[
+            'grant_type' => 'refresh_token',
+            'refresh_token' => $refresh_token,
+            'client_id' => $oClient->id,
+            'client_secret' => $oClient->secret,
+            'scope' => '',
+        ]);
+
+       $response = app()->handle($req);
+       $responseBody = json_decode($response->getContent());
+
+       if ($response->getStatusCode() == 401){
+           return response([
+               'response'=>$responseBody
+           ],401);
+       }
+       return response([
+           'response'=>$responseBody
+       ],201);
     }
 
     public function logout(){

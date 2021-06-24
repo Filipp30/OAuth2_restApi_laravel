@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Client as OClient;
+use Laravel\Passport\RefreshTokenRepository;
+use Laravel\Passport\TokenRepository;
 
 class LoginController extends Controller{
 
@@ -26,7 +28,6 @@ class LoginController extends Controller{
                 'message'=>'The provided credentials are incorrect.'
             ],401);
         }
-
         $req = Request::create('/oauth/token', 'POST',[
             'grant_type' => 'password',
             'client_id' =>$oClient->id,
@@ -35,7 +36,6 @@ class LoginController extends Controller{
             'password' => $validated['password'],
             'scope' => ''
         ]);
-
         $response = app()->handle($req);
         $responseBody = json_decode($response->getContent());
 
@@ -71,11 +71,18 @@ class LoginController extends Controller{
        ],201);
     }
 
-    public function logout(){
-        $user = request()->user();
-        $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+    public function logout(Request $request){
+
+        $access_token_id = $request->user()->token()->id;
+        $tokenRepository = app(TokenRepository::class);
+        $refreshTokenRepository = app(RefreshTokenRepository::class);
+
+        $revoke_status = $tokenRepository->revokeAccessToken($access_token_id);
+        $refreshTokenRepository->revokeRefreshTokensByAccessTokenId($access_token_id);
+
         return response([
-            'message'=>'logout successfully'
+            'revoke_status'=>$revoke_status,
+            'message'=>'logout successfully.'
         ],201);
     }
 }

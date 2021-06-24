@@ -23,5 +23,5 @@ Route::post('/resending/verify/email',[VerificationController::class,'resending_
 
 Route::post('/login',[LoginController::class,'login']);
 Route::post('/login/refresh',[LoginController::class,'refresh']);
-Route::post('/logout',[LoginController::class,'logout']);
+Route::post('/logout',[LoginController::class,'logout'])->middleware('auth:api');
 

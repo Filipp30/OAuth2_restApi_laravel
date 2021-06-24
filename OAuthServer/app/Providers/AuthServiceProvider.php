@@ -11,8 +11,8 @@ class AuthServiceProvider extends ServiceProvider{
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
-    public function boot()
-    {
+    public function boot(){
+
         $this->registerPolicies();
 
         if (! $this->app->routesAreCached()) {
@@ -23,7 +23,7 @@ class AuthServiceProvider extends ServiceProvider{
 //                $router->forClients();
 //                $router->forPersonalAccessTokens();
             });
-            Passport::tokensExpireIn(now()->addMinutes(4)); //access token
+            Passport::tokensExpireIn(now()->addMinutes(60)); //access token
             Passport::refreshTokensExpireIn(now()->addHours(5));
 //            Passport::personalAccessTokensExpireIn(now()->addMinutes(5));
 //            Passport::hashClientSecrets(); // client's secrets to be hashed when stored in your database.

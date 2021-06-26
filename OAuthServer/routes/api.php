@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginWithFacebookController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Http\Request;
@@ -25,3 +26,7 @@ Route::post('/login',[LoginController::class,'login']);
 Route::post('/login/refresh',[LoginController::class,'refresh']);
 Route::post('/logout',[LoginController::class,'logout'])->middleware('auth:api');
 
+Route::get('/auth/redirect/facebook',[LoginWithFacebookController::class,'get_facebook_redirect_url']);
+Route::get('/auth/callback/facebook',[LoginWithFacebookController::class,'auth_facebook_callback']);
+
+Route::get('/test',[LoginWithFacebookController::class,'test']);

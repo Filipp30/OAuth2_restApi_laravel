@@ -22,7 +22,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $hidden = [
-
         'first_name',
         'last_name',
         'email_verification',
@@ -37,4 +36,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function facebookCredentials(){
+        return $this->hasOne(UserFacebookCredentials::class,'user_id','id');
+    }
 }

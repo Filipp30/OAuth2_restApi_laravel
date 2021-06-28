@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Auth\OAuthClient\PasswordOAuthClient;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Passport\Client as OClient;
 use Laravel\Passport\RefreshTokenRepository;
 use Laravel\Passport\TokenRepository;
 
 class LoginController extends Controller{
 
-    public function login(LoginUserRequest $request){
+    public function login(LoginUserRequest $request,PasswordOAuthClient $client){
+
         $validated = $request->validated();
         $user = User::query()->where('email','=',$validated['email'])->first();
-        $oClient = OClient::query()->where('password_client', 1)->first();
-
-        if (!$user || !$oClient){
+        if (!$user){
             return response([
-                'message'=>'User or oClient not exist'
+                'message'=>'User not exist'
             ],401);
         }
         if (!Hash::check($validated['password'],$user->password)){
@@ -28,48 +27,36 @@ class LoginController extends Controller{
                 'message'=>'The provided credentials are incorrect.'
             ],401);
         }
-        $req = Request::create('/oauth/token', 'POST',[
-            'grant_type' => 'password',
-            'client_id' =>$oClient->id,
-            'client_secret' => $oClient->secret,
-            'username' => $validated['email'],
-            'password' => $validated['password'],
-            'scope' => ''
-        ]);
-        $response = app()->handle($req);
-        $responseBody = json_decode($response->getContent());
+        $tokens = $client->getAccessTokenAndRefreshToken($validated['email'],$validated['password']);
 
+        if (!$tokens){
+            return response([
+                'response'=>'OAuthClient is invalid.'
+            ],401);
+        }
         return response([
-        'response'=>$responseBody,
+        'response'=>$tokens,
         'user'=>$user,
         'isAdmin'=>$user['is_admin']
         ],201);
     }
 
-    public function refresh(Request $request){
+
+    public function refresh(Request $request,PasswordOAuthClient $client){
+
         $refresh_token = $request['refresh_token'];
-        $oClient = OClient::query()->where('password_client', 1)->first();
+        $new_tokens = $client->refreshTokens($refresh_token);
 
-        $req = Request::create('/oauth/token', 'POST',[
-            'grant_type' => 'refresh_token',
-            'refresh_token' => $refresh_token,
-            'client_id' => $oClient->id,
-            'client_secret' => $oClient->secret,
-            'scope' => '',
-        ]);
-
-       $response = app()->handle($req);
-       $responseBody = json_decode($response->getContent());
-
-       if ($response->getStatusCode() == 401){
-           return response([
-               'response'=>$responseBody
-           ],401);
-       }
-       return response([
-           'response'=>$responseBody
-       ],201);
+        if (!$new_tokens){
+            return response([
+                'response'=>'The refresh token is invalid.'
+            ],401);
+        }
+        return response([
+           'response'=>$new_tokens
+        ],201);
     }
+
 
     public function logout(Request $request){
 
@@ -80,6 +67,11 @@ class LoginController extends Controller{
         $revoke_status = $tokenRepository->revokeAccessToken($access_token_id);
         $refreshTokenRepository->revokeRefreshTokensByAccessTokenId($access_token_id);
 
+        if (!$revoke_status){
+            return response([
+                'revoke_status'=>'Error:revoke status: FALSE'
+            ],401);
+        }
         return response([
             'revoke_status'=>$revoke_status,
             'message'=>'logout successfully.'

@@ -29,4 +29,3 @@ Route::post('/logout',[LoginController::class,'logout'])->middleware('auth:api')
 Route::get('/auth/redirect/facebook',[LoginWithFacebookController::class,'get_facebook_redirect_url']);
 Route::get('/auth/callback/facebook',[LoginWithFacebookController::class,'auth_facebook_callback']);
 
-Route::get('/test',[LoginWithFacebookController::class,'test']);

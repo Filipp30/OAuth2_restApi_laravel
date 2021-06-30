@@ -4,11 +4,15 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginWithFacebookController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\FbLoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+Route::middleware('auth:facebook')->get('/user/fb',function (Request $request){
     return $request->user();
 });
 
@@ -28,4 +32,3 @@ Route::post('/logout',[LoginController::class,'logout'])->middleware('auth:api')
 
 Route::get('/auth/redirect/facebook',[LoginWithFacebookController::class,'get_facebook_redirect_url']);
 Route::get('/auth/callback/facebook',[LoginWithFacebookController::class,'auth_facebook_callback']);
-

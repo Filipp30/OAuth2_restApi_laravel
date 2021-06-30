@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\UserFacebookCredentials;
+
 return [
 
     /*
@@ -46,6 +48,11 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'facebook'=>[
+            'driver' => 'passport',
+            'provider' => 'user_facebook_credentials',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -71,10 +78,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'user_facebook_credentials' => [
+             'driver' => 'eloquent',
+             'model'=>UserFacebookCredentials::class,
+         ],
     ],
 
     /*

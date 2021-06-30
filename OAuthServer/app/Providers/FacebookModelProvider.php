@@ -14,7 +14,6 @@ class FacebookModelProvider extends ServiceProvider
         //
     }
 
-
     public function boot(){
 
         UserFacebookCredentials::creating(function($model){

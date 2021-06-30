@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\UserFacebookCredentials;
 use Exception;
 use Laravel\Socialite\Facades\Socialite;
@@ -45,9 +44,11 @@ class LoginWithFacebookController extends Controller{
         }
 
         if ($this->fb_user_exist || $this->save_fb_credentials){
-            dd($this->fb_user_exist , $this->save_fb_credentials);
-            //response with Tokens
+            //If fb_user of create fb_user is successfully then create access-token
+            $user_fb_credentials = UserFacebookCredentials::query()
+            ->where('email','=',$this->callback_credentials->email)->first();
+            $token = $user_fb_credentials->createToken('access_token')->accessToken;
+            dd($token);
         }
     }
-
 }

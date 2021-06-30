@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class UserFacebookCredentials extends Model{
-    use HasFactory;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class UserFacebookCredentials extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'user_facebook_credentials';
     public $timestamps = false;

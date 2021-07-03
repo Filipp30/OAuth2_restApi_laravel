@@ -26,4 +26,10 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT_URI')
     ],
 
+    'mollie' => [
+        'client_id' => env('MOLLIE_KEY'),
+        'redirect_callback' => env('MOLLIE_REDIRECT'),
+        'webhook_callback' => env('MOLLIE_WEBHOOK')
+    ],
+
 ];

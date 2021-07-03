@@ -123,6 +123,10 @@
       <path value="$PROJECT_DIR$/OAuthServer/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/OAuthServer/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/OAuthServer/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/OAuthServer/vendor/socialiteproviders/manager" />
+      <path value="$PROJECT_DIR$/OAuthServer/vendor/socialiteproviders/mollie" />
+      <path value="$PROJECT_DIR$/OAuthServer/vendor/mollie/mollie-api-php" />
+      <path value="$PROJECT_DIR$/OAuthServer/vendor/mollie/laravel-mollie" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

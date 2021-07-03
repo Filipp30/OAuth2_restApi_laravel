@@ -129,6 +129,10 @@
       <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/league/oauth1-client" />
       <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/laravel/socialite" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/socialiteproviders/manager" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/socialiteproviders/mollie" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/mollie/mollie-api-php" />
+      <excludeFolder url="file://$MODULE_DIR$/OAuthServer/vendor/mollie/laravel-mollie" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
